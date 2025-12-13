@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Auto Link Rotation</title>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const links = [
+        "https://www.effectivegatecpm.com/zxgbp7nnhh?key=1e6f7f9c8a6b732e72ed04b41d0a50a9",
+        "https://www.effectivegatecpm.com/zx48d07js?key=b48c512dd74ff2d1fbc550ec1209b63c",
+        "https://www.effectivegatecpm.com/xptxt0pcs4?key=31b79c1943c5b2f680b05d02856dd7bf",
+        "https://www.effectivegatecpm.com/vi94bfs9b?key=dcb9550a96441c6688aa686437235cac",
+        "https://www.effectivegatecpm.com/gh9yty1j?key=5e086de21b92f2a81953ba7d84b99fdc"
+    ];
+
+    let index = localStorage.getItem("link_index");
+
+    if (index === null) {
+        index = 0;
+    } else {
+        index = parseInt(index);
+    }
+
+    const targetLink = links[index];
+
+    // পরের visit-এর জন্য index আপডেট
+    index = (index + 1) % links.length;
+    localStorage.setItem("link_index", index);
+
+    // auto redirect
+    window.location.replace(targetLink);
+});
+</script>
+
+</head>
+<body>
+</body>
+</html>
